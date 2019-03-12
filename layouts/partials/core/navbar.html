@@ -1,0 +1,19 @@
+<div class="bottom_nav">
+  <span class="navbar_inner">
+
+  {{- with .Site.Params.social }}
+    {{ partialCached "menu/social-menu.html" . }}
+  {{- end }}
+
+  {{ partial "menu/logo.html" }}
+
+  <span class="navbar_right">
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main }}
+        <a href="{{ .URL | absURL }}" class="navlink">{{ .Name }}</a>
+    {{- end }}
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()" id="navlink">&#9776;</a>
+  </span>
+
+  </span>
+</div>

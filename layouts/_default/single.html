@@ -1,0 +1,64 @@
+{{ define "main" }}
+{{ block "header" . }}
+{{ end }}
+<div class="post">
+  <div class="post_title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></div>
+  <div class="post_date">{{ dateFormat "Jan 2, 2006" .Date }}</div>
+  <hr />
+  <div class="post_info"><i class="far fa-clock"></i>&nbsp;{{ i18n "readingTime" .Page.ReadingTime }} read</div>
+  <p>
+    {{ .Content }}
+  </p>
+  <hr />
+  <div class="post_info"><i class="far fa-file-alt"></i>&nbsp;{{ i18n "wordCount" .Page.WordCount }}</div>
+
+<div class="post_info">
+    {{- if .GitInfo }}
+    <i class="fab fa-github"></i>&nbsp;<a href="{{ .Site.Params.gitUrl -}}{{ .GitInfo.Hash }}" target="_blank" rel="noopener">{{ .GitInfo.AbbreviatedHash }}</a> @ {{ if .Site.Params.dateformNum }}{{ dateFormat .Site.Params.dateformNum .GitInfo.AuthorDate.Local }}{{ else }}{{ dateFormat "2006-01-02" .GitInfo.AuthorDate.Local }}{{ end }}
+    {{ end }}
+</div>
+<div class="post_info">
+    <i class="fas fa-tags"></i>
+    {{ if .Params.tags }}
+    {{range .Params.tags}}
+    <a href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>{{end}}{{end}}
+    </div>
+<div class="post_info">
+  {{ if .Params.categories }}
+  Categories:
+  {{range .Params.categories}}<a href="{{ "/categories/" | relURL }}{{ . | urlize }}">{{ . }}</a> {{end}}{{end}}
+</div>
+
+{{ if or .NextInSection .PrevInSection }}
+    <div class="pagination">
+      <hr />
+        <div class="pagination__buttons">
+            {{ if .NextInSection }}
+                <span class="button previous">
+                    <a href="{{ .NextInSection.Permalink }}">
+                        <span class="button__icon">←</span>
+                        <span class="button__text">{{ .NextInSection.Title }}</span>
+                    </a>
+                </span>
+            {{ end }}
+
+            {{ if .PrevInSection }}
+                <span class="button next">
+                    <a href="{{ .PrevInSection.Permalink }}">
+                        <span class="button__text">{{ .PrevInSection.Title }}</span>
+                        <span class="button__icon">→</span>
+                    </a>
+                </span>
+            {{ end }}
+        </div>
+    </div>
+{{ end }}
+
+  {{ if .Params.comments }}
+    <div id="comments" class="thin">
+          {{- partial "comments.html" . -}}
+      </div>
+  {{ end }}
+
+</div>
+{{ end }}

@@ -1,0 +1,15 @@
+{{ define "hero"}}
+    <!-- Title -->
+    {{- if .Title }}
+    <h1><span id="hero_cursor">{</span><span id="hero_text">{{ .Title }}</span><span id="hero_cursor">}</span>
+    </h1>
+    {{ else if .Category }}
+    <h2>Category:</h2>
+    <h1><span id="hero_cursor">{</span><span id="hero_text">{{ .Category }}</span><span id="hero_cursor">}</span>
+    </h1>
+    {{ else if .Tag }}
+    <h2>Tag:</h2>
+    <h1><span id="hero_cursor">{</span><span id="hero_text">{{ .Category }}</span><span id="hero_cursor">}</span>
+    </h1>
+    {{- end }}
+{{ end }}

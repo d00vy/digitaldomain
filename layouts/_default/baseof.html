@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial "core/head" . }}
+<body>
+{{ partial "core/navbar" . }}
+<section class="post_container">
+{{ block "main" . }}{{ end }}
+</section>
+<!-- {{ partial "extras/contact" . }} -->
+{{ partial "core/footer" . }}
+</body>
+</html>

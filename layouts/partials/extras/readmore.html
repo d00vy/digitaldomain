@@ -1,0 +1,26 @@
+{{ if or .NextInSection .PrevInSection }}
+<div class="post">
+  <div class="pagination">
+    <div class="post_title">See the rest of my work</div>
+    <!-- <div class="moreposts"><a href="posts.html">{{ .Site.Params.ReadOtherPosts }}</a></div> -->
+    {{ if .NextInSection }}
+        <button class="button">
+            <a href="{{ .NextInSection.Permalink }}">
+                <span class="button_icon">←</span>
+                <span class="button_text">{{ .NextInSection.Title }}</span>
+            </a>
+        </button>
+    {{ end }}
+
+    {{ if .PrevInSection }}
+        <button class="button">
+            <a href="{{ .PrevInSection.Permalink }}">
+                <span class="button_text">{{ .PrevInSection.Title }}</span>
+                <span class="button_icon">→</span>
+            </a>
+        </button>
+    {{ end }}
+
+  </div>
+</div>
+{{ end }}

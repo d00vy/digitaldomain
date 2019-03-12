@@ -1,0 +1,27 @@
+{{- if (eq .name "twitch") -}}
+<i class='fab fa-twitch' style='font-size:24px'></i>
+{{- else if (eq .name "facebook") -}}
+<i class='fab fa-facebook-f' style='font-size:24px'></i>
+{{- else if (eq .name "github") -}}
+<i class='fab fa-github' style='font-size:24px'></i>
+{{- else if (eq .name "gitlab") -}}
+<i class='fab fa-gitlab' style='font-size:24px'></i>
+{{- else if (eq .name "instagram") -}}
+<i class='fab fa-instagram' style='font-size:24px'></i>
+{{- else if (eq .name "linkedin") -}}
+<i class='fab fa-linkedin-in' style='font-size:24px'></i>
+{{- else if (eq .name "slack") -}}
+<i class='fab fa-slack' style='font-size:24px'></i>
+{{- else if (eq .name "twitter") -}}
+<i class='fab fa-twitter' style='font-size:24px'></i>
+{{- else if (eq .name "youtube") -}}
+<i class='fab fa-youtube' style='font-size:24px'></i>
+{{- else if (eq .name "email") -}}
+<i class='far fa-envelope' style='font-size:24px'></i>
+{{- else if (eq .name "codepen") -}}
+<i class='fab fa-codepen' style='font-size:24px'></i>
+{{- else if (eq .name "rss") -}}
+<i class='fas fa-rss'style='font-size:24px'></i>
+{{- else -}}
+<i class='fas fa-link' style='font-size:24px'></i>
+{{- end -}}
