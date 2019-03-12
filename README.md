@@ -1,7 +1,7 @@
 # digitaldomain
 Hugo portfolio/blog theme. Minimal, dark, and a constant work in progress.
 
-### Note the "constant work in progress" disclaimer!
+### Note the _constant work in progress_ disclaimer!
 
 I'm learning how to use Hugo, and this is the theme that I have created by importing my raw HTML/CSS. The original files can still be seen [here](http://github.com/d00vy/doovy.me.original) for reference.
 
