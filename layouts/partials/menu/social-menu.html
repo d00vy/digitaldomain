@@ -1,6 +1,6 @@
 <span class="navbar_left">
   {{ range . }}
-      <a href="{{ .URL }}" target="_blank" title="{{ .name | humanize }}" class="fa">{{ partial "core/social-icons" . }}</a>&nbsp;
+      <a href="{{ .url }}" target="_blank" title="{{ .name | humanize }}" class="fa">{{ partial "core/social-icons" . }}</a>&nbsp;
   {{ end }}
 </span>
 
