@@ -2,7 +2,10 @@
   {{ range . }}
       <a href="{{ .url }}" target="_blank" title="{{ .name | humanize }}" class="fa">{{ partial "core/social-icons" . }}</a>&nbsp;
   {{ end }}
+  <a href="{{ "posts/index.xml" | absURL }}" target="_blank" title="rss"><i class='fas fa-rss'style='font-size:24px'></i></a>
 </span>
+
+
 
 <!--
 <span class="navbar_left">
