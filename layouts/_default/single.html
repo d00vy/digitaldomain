@@ -61,11 +61,12 @@
 {{ end }}
 <hr />
 </div>
-
+<div class="post">
   {{ if .Params.comments }}
     <div id="comments" class="thin">
           {{- partial "core/comments.html" . -}}
       </div>
-  {{ end }}
+        {{ end }}
+    </div>  
 
 {{ end }}
