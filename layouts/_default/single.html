@@ -3,7 +3,13 @@
 {{ end }}
 <div class="post">
   <div class="post_title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></div>
-  <div class="post_date">{{ dateFormat "Jan 2, 2006" .Date }}</div>
+  <div class="post_date">{{ dateFormat "Jan 2, 2006" .Date }}
+  {{ if .GitInfo }}
+  <br>
+  <span class="post_info">
+  (Updated: {{ dateFormat "Jan 2, 2006" .GitInfo.AuthorDate.Local }})
+  {{ end }}</span>
+  </div>
   <hr />
   <div class="post_info"><i class="far fa-clock"></i>&nbsp;{{ i18n "readingTime" .Page.ReadingTime }} read</div>
   <p>
@@ -53,12 +59,13 @@
         </div>
     </div>
 {{ end }}
+<hr />
+</div>
 
   {{ if .Params.comments }}
     <div id="comments" class="thin">
-          {{- partial "comments.html" . -}}
+          {{- partial "core/comments.html" . -}}
       </div>
   {{ end }}
 
-</div>
 {{ end }}

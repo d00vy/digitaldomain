@@ -79,7 +79,7 @@ hr {
   font-size: 13px;
   font-weight: lighter;
   text-align: left;
-  padding: 3px;
+  padding: 5px;
 }
 
 .highlight {
@@ -118,7 +118,8 @@ hr {
 }
 
 .hero {
-  width: 60%;
+  min-width: 60%;
+  max-width: 100%;
   border-style: dotted;
   border-color: #a9a9b3;
 }
