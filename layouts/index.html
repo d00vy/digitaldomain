@@ -12,6 +12,14 @@
     </h1>
   </section>
 </div>
+
+<!-- 3 most recent posts -->
+<section class="post_container">
+  {{ block "postrange" . }}
+  {{ end }}
+</section>
+
+<!-- {{ partial "extras/readmore" . }} -->
 <!-- {{ partial "extras/contact" . }} -->
 {{ partial "core/footer" . }}
 </body>

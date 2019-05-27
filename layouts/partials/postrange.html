@@ -1,0 +1,25 @@
+{{ define "postrange" }}
+    {{ range first 3 .Pages }}
+      <div class="post">
+        <div class="post_title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></div>
+          <div class="post_date">{{ dateFormat "Jan 2, 2006" .Date }}</div>
+          <hr />
+        <p>
+          {{.Summary}}
+        </p>
+          <hr />
+
+        <div class="post_info">
+          {{ if .Params.categories }}
+          Categories:
+          {{range .Params.categories}}<a href="{{ "/categories/" | relURL }}{{ . | urlize }}">{{ . }}</a> {{end}}{{end}}
+        </div>
+
+        <div class="post_info">
+            {{- if .GitInfo }}
+            <i class="fab fa-github"></i>&nbsp;<a href="{{ .Site.Params.gitUrl -}}{{ .GitInfo.Hash }}" target="_blank" rel="noopener">{{ .GitInfo.AbbreviatedHash }}</a> @ {{ if .Site.Params.dateformNum }}{{ dateFormat .Site.Params.dateformNum .GitInfo.AuthorDate.Local }}{{ else }}{{ dateFormat "2006-01-02" .GitInfo.AuthorDate.Local }}{{ end }}
+            {{ end }}
+        </div>
+      </div>
+    {{ end }}
+{{ end }}
